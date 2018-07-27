@@ -1,0 +1,45 @@
+<h1 class="text-center">{{ title }}</h1>
+
+<section class="content">
+
+  <div class="box box-primary">
+    <div class="box-header with-border">
+      <h3 class="box-title">Cadastrar novo produto</h3>
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+          <i class="fa fa-minus"></i>
+        </button>
+        <button type="button" class="btn btn-box-tool" data-widget="remove">
+          <i class="fa fa-remove"></i>
+        </button>
+      </div>
+    </div>
+
+    {{ form.valid }} {{ form.value | json }}
+
+    <div class="box-body">
+      <div class="row">
+        <div class="col-md-12">
+          <form #form="ngForm" novalidate>
+            <div class="col-md-12">
+
+              <app-input-container label="Nome" errorMessage="Campo obrigatório e no mínimo 5 caracteres">
+                <input class="form-control" name="nome" ngModel required minlength="5" placeholder="Nome" autocomplete="off">
+              </app-input-container>
+
+            </div>
+
+          </form>
+          <div class="box-footer">
+
+            <button (click)="addCategory(form.value)" [disabled]="form.pristine || form.invalid" class="btn btn-primary mt-2">Enviar</button>
+
+            <button (click)="navigateToBack()" class="btn btn-danger" style="margin-left: 2px;">Cancelar</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

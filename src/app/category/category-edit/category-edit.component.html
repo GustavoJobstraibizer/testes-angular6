@@ -1,0 +1,14 @@
+<h1 class="text-center">{{ title }}</h1>
+<div class="panel panel-primary" *ngIf="category">
+  <div class="panel-body">
+    <form #form="ngForm" novalidate>
+      <app-input-container label="Nome" errorMessage="Campo obrigatório">
+        <input class="form-control" ngModel name="nome" required minlength="5" placeholder="Nome" autocomplete="off" [(ngModel)]="category.nome" />
+      </app-input-container>
+      <div class="form-group">
+        <button (click)="updateCategory(form.value)" [disabled]="form.invalid" class="btn btn-primary">Enviar</button>
+        <button (click)="navigateToBack()" class="btn btn-danger" style="margin-left: 2px;">Voltar</button>
+      </div>
+    </form>
+  </div>
+</div>

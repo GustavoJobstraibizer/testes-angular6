@@ -1,0 +1,101 @@
+<h1 class="text-center">{{ title }}</h1>
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel panel-primary">
+        <div class="panel-body">
+          <form [formGroup]="prodForm" novalidate>
+            <div>
+              <label>Nome</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="fas fa-screwdriver"></i>
+                  </span>
+                </div>
+                <input type="text" class="form-control" formControlName="name" #name placeholder="Informe o nome..." />
+              </div>
+            </div>
+            <div *ngIf="prodForm.controls['name'].invalid && (prodForm.controls['name'].dirty || prodForm.controls['name'].touched)"
+              class="alert alert-danger">
+              <div *ngIf="prodForm.controls['name'].errors.required">
+                Nome é obrigatório
+              </div>
+            </div>
+            <div class="form-group">
+              <button (click)="addProd(name.value)" [disabled]="prodForm.pristine || prodForm.invalid" class="btn btn-primary mt-2">Enviar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<section class="content">
+
+  <div class="box box-primary">
+    <div class="box-header with-border">
+      <h3 class="box-title">Cadastrar novo produto</h3>
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+          <i class="fa fa-minus"></i>
+        </button>
+        <button type="button" class="btn btn-box-tool" data-widget="remove">
+          <i class="fa fa-remove"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- {{ form.valid }} {{ form.value | json }} -->
+
+    <div class="box-body">
+      <div class="row">
+        <div class="col-md-12">
+          <form #form="ngForm" novalidate>
+            <div class="col-md-6">
+              <!-- <div class="form-group">
+                <label for="name" class="col-sm-2 control-label">Nome</label>
+
+                <input type="text" class="form-control" formControlName="name" #name placeholder="Informe o nome...">
+              </div> -->
+
+              <app-input-container label="Nome" errorMessage="Campo obrigatório e no mínimo 5 caracteres">
+                <input class="form-control" name="name" ngModel required minlength="5" placeholder="Nome" autocomplete="off">
+              </app-input-container>
+
+            </div>
+            <div class="col-md-6">
+
+              <app-select-container label="Categoria" errorMessage="Selecione uma opção">
+                <select class="form-control" ngModel required name="categoria">
+                  <option [value]="category.id" *ngFor="let category of categories">{{category.name}}</option>
+                </select>
+              </app-select-container>
+              <!-- <div class="form-group">
+                <label>Categoria</label>
+                <select ngModel required name="categoria" class="form-control" #categoria>
+                  <option [value]="category.id" *ngFor="let category of categories">{{category.name}}</option>
+                </select>
+              </div> -->
+            </div>
+
+          </form>
+          <div class="box-footer">
+            <!-- <button (click)="addProd(name.value, categoria.value)" [disabled]="form.pristine || form.invalid" class="btn btn-primary mt-2">Enviar</button> -->
+            <button (click)="addProd(form.value)" [disabled]="form.pristine || form.invalid" class="btn btn-primary mt-2">Enviar</button>
+
+            <button (click)="navigateToBack()" class="btn btn-danger" style="margin-left: 2px;">Cancelar</button>
+          </div>
+          <!-- <div *ngIf="prodForm.controls['name'].invalid && (prodForm.controls['name'].dirty || prodForm.controls['name'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="prodForm.controls['name'].errors.required">
+              Nome é obrigatório
+            </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

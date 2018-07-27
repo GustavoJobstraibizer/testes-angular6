@@ -1,0 +1,34 @@
+<aside class="main-sidebar">
+  <section class="sidebar">
+    <app-user-panel [image]="['../../assets/img/user1-128x128.jpg']" [nameOfPerson]="['Gustavo']" [status]="['Online']"></app-user-panel>
+
+    <ul class="sidebar-menu tree" data-widget="tree">
+      <li class="header">App teste</li>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-dashboard"></i>
+          <span>Cadastros</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li>
+            <a [routerLink]="['/category']">
+              <i class="fa fa-circle-o"></i> Categoria</a>
+          </li>
+          <li>
+            <a [routerLink]="['/produtos']">
+              <i class="fa fa-circle-o"></i> Produtos</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a [routerLink]="['/about']">
+          <i class="fa fa-book"></i>
+          <span>Sobre</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+</aside>

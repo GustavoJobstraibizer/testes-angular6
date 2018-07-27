@@ -1,0 +1,15 @@
+<h1 class="text-center">{{ title }}</h1>
+
+<div class="panel panel-primary" *ngIf="product">
+  <div class="panel-body">
+    <form #form="ngForm" novalidate>
+      <app-input-container label="Nome" errorMessage="Campo obrigatório">
+          <input class="form-control" ngModel required name="nome" placeholder="Nome" autocomplete="off" [(ngModel)]="product.nome" />
+      </app-input-container>
+      <div class="form-group">
+        <button (click)="updateProd(form.value)" [disabled]="form.invalid" class="btn btn-primary">Enviar</button>
+        <button (click)="navigateToBack()" class="btn btn-danger" style="margin-left: 2px;">Voltar</button>
+      </div>
+    </form>
+  </div>
+</div>
